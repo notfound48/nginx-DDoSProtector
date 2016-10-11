@@ -1,1 +1,8 @@
-#0.0.0.0	1;
+# List of blocked ip/networks
+#
+# Format: ip_address|ip_address/cidr 0|1;
+#
+# Example:	123.45.67.89 	1; # block ip 123.45.67.89
+# 			123.45.67.0/24	1; # block network 123.45.67.0/24
+#			123.45.67.88	0; # allow ip 123.45.67.88
+#			123.45.66.0/32	0; # allow network 123.45.66.0/32

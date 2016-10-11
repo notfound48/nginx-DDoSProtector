@@ -1,20 +1,26 @@
-### Instalation
+# NGINX DDoS Protector
 
-Clone repository to nginx config folder 
+Configuration of nginx virtual host for protect of DDoS attacks. 
 
-mkdir -p /etc/nginx/DDoSProtector && cd /etc/nginx/DDoSProtector && git clone http://git.skillum.ru/git/server-admin.ddosprotector ./
+## Installation
 
-Include  DDoSProtector/DDoSProtector.conf in your nginx.conf
+Clone repository to nginx config folder:
 
-### Configure
+```bash
+cd /etc/nginx && git clone http://git.skillum.ru/git/server-admin.ddosprotector DDoSProtector
+```
 
-In config file set server_name variable to protect hosts names;
+Include  `DDoSProtector/DDoSProtector.conf` in your `nginx.conf`
 
-Configure block_user_agent and block_ip files;
+## Configure
+In config file set `server_name` variable to protect hosts names.
 
-Change listen port and address (default 127.0.0.1:81) in protect hosts configurations;
+Configure `block_user_agent` and `block_ip` files.
 
-Add rule:
+Change listen port and address (default 127.0.0.1:81) in protect hosts configurations.
 
- deny all;
- allow 127.0.0.1;
+Add rule in protect hosts configurations:
+```nginx
+deny all;
+allow 127.0.0.1;
+```
