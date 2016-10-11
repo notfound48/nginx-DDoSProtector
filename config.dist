@@ -1,0 +1,9 @@
+listen *:80 default_server;	# listening port for DDoSProtector layer
+
+server_name _; 			# Names of protected hosts
+
+set $ddosp_use_cache off;	# Use caching for ptotected hosts (on|off)
+set $ddosp_use_limits on;	# Use limits for ptotected hosts (on|off)
+
+error_log  /var/log/nginx/DDoSProtector.error.log error;
+access_log  /var/log/nginx/DDoSProtector.access.log;
