@@ -7,7 +7,7 @@ Configuration of nginx virtual host for protect of DDoS attacks.
 Clone repository to nginx config folder:
 
 ```bash
-cd /etc/nginx && git clone http://git.skillum.ru/git/server-admin.ddosprotector DDoSProtector
+cd /etc/nginx && git clone https://github.com/notfound48/nginx-DDoSProtector.git DDoSProtector
 ```
 
 Include  `DDoSProtector/DDoSProtector.conf` in your `nginx.conf`
