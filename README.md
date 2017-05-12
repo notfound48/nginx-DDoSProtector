@@ -40,7 +40,10 @@ chmod 400 /etc/nginx/ssl/*
 
 3. Uncomment all SSL section
 
-If you have several virtual hosts with SSL that are protected, then for each of them you need to create a protective layer. If you have several virtual hosts without SSL that are protected, you can create one layer with the parameter: ```nginx server_name _;```
+If you have several virtual hosts with SSL that are protected, then for each of them you need to create a protective layer. If you have several virtual hosts without SSL that are protected, you can create one layer with the parameter: 
+```nginx
+server_name _;
+```
 
 Configure `block_user_agent` and `block_ip` files.
 
