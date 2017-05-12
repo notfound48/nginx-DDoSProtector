@@ -1,0 +1,51 @@
+    proxy_redirect off;
+    proxy_set_header REAL-CLIENT-IP $remote_addr;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    client_max_body_size 100m;
+    client_body_buffer_size 128k;
+    proxy_connect_timeout 90;
+    proxy_send_timeout 90;
+    proxy_read_timeout 90;
+    proxy_buffer_size 32k;
+    proxy_buffers 32 32k;
+    proxy_busy_buffers_size 64k;
+    proxy_temp_file_write_size 64k;
+
+    limit_req zone=ddosp burst=20;
+
+    location / {
+
+	try_files 404 = $target_location;
+	log_not_found  off;
+
+    }
+
+    location @default {
+
+	proxy_pass http://protected;
+
+    }
+
+    location @cache {
+
+	proxy_ignore_headers Expires Cache-Control;
+	proxy_cache_key "$scheme$host$uri";
+	proxy_cache_use_stale error timeout invalid_header http_502;
+	proxy_cache_bypass $cookie_session;
+	proxy_no_cache $cookie_session;
+
+	proxy_cache cache;
+	proxy_cache_valid 1h;
+	proxy_cache_valid 404 1h;
+
+	proxy_pass http://protected;
+
+    }
+
+    location @block {
+
+	deny all;
+
+    }

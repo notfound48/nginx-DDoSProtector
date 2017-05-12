@@ -1,8 +1,0 @@
-# List of blocked user agents
-#
-# Format: "user_agent_name|~regExp" 1;
-#
-# Example:	"badbot" 	1; # block user agent: badbot
-# 			"~*HaCkEr"	1; # insensitively block user agent: hacker 
-
-"~*WordPress"	1; #WordPress pingback protection
