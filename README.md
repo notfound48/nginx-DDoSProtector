@@ -13,7 +13,7 @@ cd /etc/nginx && git clone https://github.com/notfound48/nginx-DDoSProtector.git
 Include  `nginx-DDoSProtector/*.conf` in your `nginx.conf`
 
 ## Configure
-Configure the protective layer for your virtual post by following the example in the file 00_layer_www.example.com.conf
+Configure the protective layer for your virtual post by following the example in the file `00_layer_www.example.com.conf`
 The file name of the protective layer configuration must be *.conf
 
 Set variables 
